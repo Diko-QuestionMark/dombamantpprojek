@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byvhxqqtqp6ky"
-path="res://.godot/imported/walking.png-5ba47df04eac15cad5f2a50a9124330e.ctex"
+uid="uid://dj37b1btyiynd"
+path="res://.godot/imported/pot.png-3928eb2728b1700535ad925e4eaf8548.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://walking.png"
-dest_files=["res://.godot/imported/walking.png-5ba47df04eac15cad5f2a50a9124330e.ctex"]
+source_file="res://asset/enviroment/pot.png"
+dest_files=["res://.godot/imported/pot.png-3928eb2728b1700535ad925e4eaf8548.ctex"]
 
 [params]
 
