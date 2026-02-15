@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dnvc4m8qc3n2l"]
+[gd_scene load_steps=12 format=3 uid="uid://dnvc4m8qc3n2l"]
 
 [ext_resource type="Texture2D" uid="uid://dtfugxf152xwb" path="res://asset/enviroment/pohon.png" id="1_841ny"]
+[ext_resource type="Script" uid="uid://wlll74kbq0id" path="res://scenes/pohon.gd" id="1_uj7u5"]
 [ext_resource type="Texture2D" uid="uid://b2oo4w2mstuw0" path="res://asset/enviroment/apple.png" id="2_uj7u5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_warir"]
@@ -57,6 +58,7 @@ animations = [{
 size = Vector2(23, 31)
 
 [node name="Pohon" type="Area2D"]
+script = ExtResource("1_uj7u5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(10, -22)

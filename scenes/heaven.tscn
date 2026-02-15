@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://qe6d7r0dhem4"]
+[gd_scene load_steps=14 format=4 uid="uid://qe6d7r0dhem4"]
 
 [ext_resource type="Script" uid="uid://crp8qodu5ffc" path="res://scenes/heaven.gd" id="1_axnk8"]
 [ext_resource type="Texture2D" uid="uid://chaa8q2k8bnrm" path="res://asset/enviroment/grass.png" id="1_nnobs"]
@@ -9,8 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://drewe8egjspi3" path="res://scenes/jeruk.tscn" id="7_udvkj"]
 [ext_resource type="PackedScene" uid="uid://duub0d48p213v" path="res://scenes/kucing_shiroi.tscn" id="8_axnk8"]
 [ext_resource type="PackedScene" uid="uid://cf23guqhxo1eh" path="res://scenes/kucing_oren.tscn" id="9_uqftx"]
-[ext_resource type="Texture2D" uid="uid://dtfugxf152xwb" path="res://asset/enviroment/pohon.png" id="10_udvkj"]
-[ext_resource type="Texture2D" uid="uid://b2oo4w2mstuw0" path="res://asset/enviroment/apple.png" id="12_uqftx"]
+[ext_resource type="PackedScene" uid="uid://dnvc4m8qc3n2l" path="res://scenes/pohon.tscn" id="10_kmqmy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7jktm"]
 texture = ExtResource("1_nnobs")
@@ -62,59 +61,6 @@ terrain_set_0/terrain_0/color = Color(0.2509804, 0.27254903, 0.5019608, 1)
 sources/0 = SubResource("TileSetAtlasSource_7jktm")
 sources/1 = SubResource("TileSetAtlasSource_frp3b")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_warir"]
-atlas = ExtResource("10_udvkj")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s8o63"]
-atlas = ExtResource("10_udvkj")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a1aab"]
-atlas = ExtResource("10_udvkj")
-region = Rect2(0, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_31v2q"]
-atlas = ExtResource("10_udvkj")
-region = Rect2(64, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bvr31"]
-atlas = ExtResource("10_udvkj")
-region = Rect2(0, 128, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_52u5p"]
-atlas = ExtResource("10_udvkj")
-region = Rect2(64, 128, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_52u5p"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_warir")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s8o63")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a1aab")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_31v2q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bvr31")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_52u5p")
-}],
-"loop": false,
-"name": &"default",
-"speed": 1.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikw23"]
-size = Vector2(23, 31)
-
 [node name="Heaven" type="Node2D"]
 script = ExtResource("1_axnk8")
 
@@ -138,31 +84,12 @@ collision_mask = 3
 position = Vector2(192, -91)
 
 [node name="KucingShiroi" parent="." instance=ExtResource("8_axnk8")]
-position = Vector2(329, -40)
 
 [node name="KucingOren" parent="." instance=ExtResource("9_uqftx")]
 position = Vector2(207, -98)
 
-[node name="Pohon" type="Area2D" parent="."]
+[node name="Pohon" parent="." instance=ExtResource("10_kmqmy")]
 position = Vector2(-467, -42)
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pohon"]
-position = Vector2(10, -22)
-sprite_frames = SubResource("SpriteFrames_52u5p")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pohon"]
-position = Vector2(9.5, -5.5)
-shape = SubResource("RectangleShape2D_ikw23")
-
-[node name="AppleSpot1" type="Marker2D" parent="Pohon"]
-position = Vector2(16, -4)
-
-[node name="AppleSpot2" type="Marker2D" parent="Pohon"]
-position = Vector2(5, -10)
-
-[node name="Apple" type="Sprite2D" parent="Pohon"]
-position = Vector2(5, -10)
-texture = ExtResource("12_uqftx")
 
 [connection signal="body_entered" from="Pohon" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Pohon" to="." method="_on_area_2d_body_exited"]
