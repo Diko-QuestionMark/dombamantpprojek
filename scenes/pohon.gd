@@ -1,11 +1,36 @@
 extends Area2D
 
+var in_tree = false
+var max_grow = false
+@onready var playerLabel = $"../Player/Label/Label"
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	interact_tree()
+	print(max_grow)
 	pass
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		in_tree = true
+		print("Masuk")
+
+
+func _on_body_exited(body: Node2D) -> void:
+	if body.name == "Player":
+		in_tree = false
+		playerLabel.visible = false
+		print("Keluar")
+
+
+func interact_tree():
+	if in_tree:
+		var spritePohon = $AnimatedSprite2D
+		if spritePohon.frame == 5:
+			max_grow = true
+		if !max_grow:
+			playerLabel.visible = true
+			if Input.is_action_just_pressed("shoot"):
+				spritePohon.frame += 1
+		else:
+			playerLabel.visible = false
