@@ -14,8 +14,10 @@ func _process(_delta: float) -> void:
 
 
 
-func _on_body_entered(_body: Node2D) -> void:
-	$"../Player".velocity.y = 50
-	$"../Player".position.y = -100
-	$"../Player".position.x = 0
-	
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		$"../Player".velocity.y = 100
+		$"../Player".position.y = -100
+		$"../Player".position.x = 0
+	if body.name == "Jeruk":
+		pass

@@ -81,21 +81,21 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80cx4"]
-size = Vector2(10, 8)
+size = Vector2(10, 7)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_qhqgy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_7sc4i")
 animation = &"idle"
 frame_progress = 0.063231476
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_80cx4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(0, -12)
 zoom = Vector2(4, 4)
 limit_enabled = false
