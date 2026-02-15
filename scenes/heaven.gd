@@ -1,15 +1,13 @@
 extends Node2D
 
 var in_tree = false
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var max_grow = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	interact_tree()
+	print(max_grow)
 	pass
 
 
@@ -24,6 +22,13 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		in_tree = false
 		print("Keluar")
 
+
 func interact_tree():
-	if Input.is_action_just_pressed("shoot") and in_tree == true:
-		$Area2D/AnimatedSprite2D.frame += 1
+	if in_tree and !max_grow:
+		$Player/Label/Label.visible = true
+		if Input.is_action_just_pressed("shoot"):
+			$Pohon/AnimatedSprite2D.frame += 1
+			if $Pohon/AnimatedSprite2D.frame == 5:
+				max_grow = true
+	else:
+		$Player/Label/Label.visible = false

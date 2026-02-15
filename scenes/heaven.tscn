@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://qe6d7r0dhem4"]
+[gd_scene load_steps=45 format=4 uid="uid://qe6d7r0dhem4"]
 
 [ext_resource type="Script" uid="uid://crp8qodu5ffc" path="res://scenes/heaven.gd" id="1_axnk8"]
 [ext_resource type="Texture2D" uid="uid://chaa8q2k8bnrm" path="res://asset/enviroment/grass.png" id="1_nnobs"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bwrd4mw5lij70" path="res://asset/enviroment/walkingCat.png" id="8_fd24p"]
 [ext_resource type="Texture2D" uid="uid://qi8tros5ot6b" path="res://asset/enviroment/kuscingRaksasa.png" id="9_sbrvq"]
 [ext_resource type="Texture2D" uid="uid://dtfugxf152xwb" path="res://asset/enviroment/pohon.png" id="10_udvkj"]
+[ext_resource type="Texture2D" uid="uid://b2oo4w2mstuw0" path="res://asset/enviroment/apple.png" id="12_uqftx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7jktm"]
 texture = ExtResource("1_nnobs")
@@ -281,7 +282,7 @@ tile_set = SubResource("TileSet_mwb40")
 
 [node name="Player" parent="." instance=ExtResource("4_nnobs")]
 z_index = 5
-position = Vector2(0, -8)
+position = Vector2(-429, -36)
 collision_layer = 3
 
 [node name="Void" parent="." instance=ExtResource("5_puekj")]
@@ -334,7 +335,7 @@ shape = SubResource("RectangleShape2D_udvkj")
 [node name="KuscingRaksasa" type="AnimatedSprite2D" parent="KucingOren"]
 sprite_frames = SubResource("SpriteFrames_warir")
 autoplay = "default"
-frame_progress = 0.44788733
+frame_progress = 0.31135836
 
 [node name="Loncat" type="AnimationPlayer" parent="KucingOren"]
 libraries = {
@@ -342,18 +343,28 @@ libraries = {
 }
 autoplay = "loncat"
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(-44, -10)
+[node name="Pohon" type="Area2D" parent="."]
+position = Vector2(-467, -42)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pohon"]
 position = Vector2(10, -22)
 sprite_frames = SubResource("SpriteFrames_52u5p")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pohon"]
 position = Vector2(9.5, -5.5)
 shape = SubResource("RectangleShape2D_ikw23")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[node name="AppleSpot1" type="Marker2D" parent="Pohon"]
+position = Vector2(16, -4)
+
+[node name="AppleSpot2" type="Marker2D" parent="Pohon"]
+position = Vector2(5, -10)
+
+[node name="Apple" type="Sprite2D" parent="Pohon"]
+position = Vector2(5, -10)
+texture = ExtResource("12_uqftx")
+
+[connection signal="body_entered" from="Pohon" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Pohon" to="." method="_on_area_2d_body_exited"]
 
 [editable path="Player"]

@@ -99,3 +99,15 @@ shape = SubResource("RectangleShape2D_80cx4")
 position = Vector2(0, -12)
 zoom = Vector2(4, 4)
 limit_enabled = false
+
+[node name="Label" type="Node2D" parent="."]
+position = Vector2(0, -12)
+scale = Vector2(0.3, 0.3)
+
+[node name="Label" type="Label" parent="Label"]
+offset_left = -36.0
+offset_top = -10.0
+offset_right = 36.0
+offset_bottom = 13.0
+text = "GROW"
+horizontal_alignment = 1
