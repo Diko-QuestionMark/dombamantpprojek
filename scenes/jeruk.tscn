@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://drewe8egjspi3"]
+
+[ext_resource type="Texture2D" uid="uid://18jcnyl08ylo" path="res://asset/jeruk.png" id="1_3feh1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_puekj"]
+atlas = ExtResource("1_3feh1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd24p"]
+atlas = ExtResource("1_3feh1")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sbrvq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_puekj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd24p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nnobs"]
+radius = 5.0990195
+
+[node name="Jeruk" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sbrvq")
+autoplay = "default"
+frame_progress = 0.64355505
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_nnobs")

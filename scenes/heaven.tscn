@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://qe6d7r0dhem4"]
+[gd_scene load_steps=23 format=4 uid="uid://qe6d7r0dhem4"]
 
 [ext_resource type="Script" uid="uid://crp8qodu5ffc" path="res://scenes/heaven.gd" id="1_axnk8"]
 [ext_resource type="Texture2D" uid="uid://chaa8q2k8bnrm" path="res://asset/enviroment/grass.png" id="1_nnobs"]
@@ -6,10 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://c0f8u3jxp1e1a" path="res://scenes/sky.tscn" id="3_chesl"]
 [ext_resource type="PackedScene" uid="uid://cqnmw0n4g2sai" path="res://scenes/player.tscn" id="4_nnobs"]
 [ext_resource type="PackedScene" uid="uid://dmuojak74l8lu" path="res://scenes/void.tscn" id="5_puekj"]
-[ext_resource type="Texture2D" uid="uid://18jcnyl08ylo" path="res://asset/jeruk.png" id="6_nnobs"]
-[ext_resource type="Texture2D" uid="uid://c3fmx3srq6m12" path="res://asset/enviroment/kucing.png" id="7_puekj"]
-[ext_resource type="Texture2D" uid="uid://bwrd4mw5lij70" path="res://asset/enviroment/walkingCat.png" id="8_fd24p"]
-[ext_resource type="Texture2D" uid="uid://qi8tros5ot6b" path="res://asset/enviroment/kuscingRaksasa.png" id="9_sbrvq"]
+[ext_resource type="PackedScene" uid="uid://drewe8egjspi3" path="res://scenes/jeruk.tscn" id="7_udvkj"]
+[ext_resource type="PackedScene" uid="uid://duub0d48p213v" path="res://scenes/kucing_shiroi.tscn" id="8_axnk8"]
+[ext_resource type="PackedScene" uid="uid://cf23guqhxo1eh" path="res://scenes/kucing_oren.tscn" id="9_uqftx"]
 [ext_resource type="Texture2D" uid="uid://dtfugxf152xwb" path="res://asset/enviroment/pohon.png" id="10_udvkj"]
 [ext_resource type="Texture2D" uid="uid://b2oo4w2mstuw0" path="res://asset/enviroment/apple.png" id="12_uqftx"]
 
@@ -62,161 +61,6 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.2509804, 0.27254903, 0.5019608, 1)
 sources/0 = SubResource("TileSetAtlasSource_7jktm")
 sources/1 = SubResource("TileSetAtlasSource_frp3b")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_puekj"]
-atlas = ExtResource("6_nnobs")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fd24p"]
-atlas = ExtResource("6_nnobs")
-region = Rect2(0, 16, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_sbrvq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_puekj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fd24p")
-}],
-"loop": true,
-"name": &"default",
-"speed": 1.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_nnobs"]
-radius = 5.0990195
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fd24p"]
-size = Vector2(11, 10)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sbrvq"]
-atlas = ExtResource("7_puekj")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_udvkj"]
-atlas = ExtResource("8_fd24p")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_axnk8"]
-atlas = ExtResource("8_fd24p")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uqftx"]
-atlas = ExtResource("8_fd24p")
-region = Rect2(0, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kmqmy"]
-atlas = ExtResource("8_fd24p")
-region = Rect2(16, 16, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_074jj"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sbrvq")
-}],
-"loop": true,
-"name": &"still",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_udvkj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_axnk8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uqftx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kmqmy")
-}],
-"loop": true,
-"name": &"walking",
-"speed": 5.0
-}]
-
-[sub_resource type="Animation" id="Animation_sbrvq"]
-resource_name = "move"
-length = 5.0
-loop_mode = 2
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.5, 4.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(329, -40), Vector2(450, -40)]
-}
-
-[sub_resource type="Animation" id="Animation_udvkj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(329, -40)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_axnk8"]
-_data = {
-&"RESET": SubResource("Animation_udvkj"),
-&"move": SubResource("Animation_sbrvq")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_udvkj"]
-size = Vector2(15, 19)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_074jj"]
-atlas = ExtResource("9_sbrvq")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r57td"]
-atlas = ExtResource("9_sbrvq")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_warir"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_074jj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r57td")
-}],
-"loop": true,
-"name": &"default",
-"speed": 2.0
-}]
-
-[sub_resource type="Animation" id="Animation_axnk8"]
-resource_name = "loncat"
-length = 3.0
-loop_mode = 2
-step = 0.1
-
-[sub_resource type="Animation" id="Animation_uqftx"]
-length = 0.001
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_kmqmy"]
-_data = {
-&"RESET": SubResource("Animation_uqftx"),
-&"loncat": SubResource("Animation_axnk8")
-}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_warir"]
 atlas = ExtResource("10_udvkj")
@@ -290,58 +134,14 @@ position = Vector2(-42, 335)
 collision_layer = 3
 collision_mask = 3
 
-[node name="Jeruk" type="RigidBody2D" parent="."]
+[node name="Jeruk" parent="." instance=ExtResource("7_udvkj")]
 position = Vector2(192, -91)
-collision_layer = 2
-collision_mask = 2
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Jeruk"]
-sprite_frames = SubResource("SpriteFrames_sbrvq")
-autoplay = "default"
-frame_progress = 0.64355505
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Jeruk"]
-position = Vector2(0, 3)
-shape = SubResource("CircleShape2D_nnobs")
-
-[node name="KucingShiroi" type="AnimatableBody2D" parent="."]
+[node name="KucingShiroi" parent="." instance=ExtResource("8_axnk8")]
 position = Vector2(329, -40)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KucingShiroi"]
-position = Vector2(-0.5, 3)
-shape = SubResource("RectangleShape2D_fd24p")
-
-[node name="Sprite2D" type="AnimatedSprite2D" parent="KucingShiroi"]
-sprite_frames = SubResource("SpriteFrames_074jj")
-animation = &"still"
-autoplay = "walking"
-
-[node name="Atasbawah" type="AnimationPlayer" parent="KucingShiroi"]
-libraries = {
-&"": SubResource("AnimationLibrary_axnk8")
-}
-autoplay = "move"
-
-[node name="KucingOren" type="RigidBody2D" parent="."]
+[node name="KucingOren" parent="." instance=ExtResource("9_uqftx")]
 position = Vector2(207, -98)
-collision_layer = 2
-collision_mask = 2
-linear_velocity = Vector2(0, -10)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KucingOren"]
-position = Vector2(-0.5, 5.5)
-shape = SubResource("RectangleShape2D_udvkj")
-
-[node name="KuscingRaksasa" type="AnimatedSprite2D" parent="KucingOren"]
-sprite_frames = SubResource("SpriteFrames_warir")
-autoplay = "default"
-frame_progress = 0.31135836
-
-[node name="Loncat" type="AnimationPlayer" parent="KucingOren"]
-libraries = {
-&"": SubResource("AnimationLibrary_kmqmy")
-}
-autoplay = "loncat"
 
 [node name="Pohon" type="Area2D" parent="."]
 position = Vector2(-467, -42)
@@ -367,4 +167,5 @@ texture = ExtResource("12_uqftx")
 [connection signal="body_entered" from="Pohon" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Pohon" to="." method="_on_area_2d_body_exited"]
 
+[editable path="Sky"]
 [editable path="Player"]

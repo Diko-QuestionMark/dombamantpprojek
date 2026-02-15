@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://dnvc4m8qc3n2l"]
+
+[ext_resource type="Texture2D" uid="uid://dtfugxf152xwb" path="res://asset/enviroment/pohon.png" id="1_841ny"]
+[ext_resource type="Texture2D" uid="uid://b2oo4w2mstuw0" path="res://asset/enviroment/apple.png" id="2_uj7u5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_warir"]
+atlas = ExtResource("1_841ny")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8o63"]
+atlas = ExtResource("1_841ny")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1aab"]
+atlas = ExtResource("1_841ny")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31v2q"]
+atlas = ExtResource("1_841ny")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvr31"]
+atlas = ExtResource("1_841ny")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52u5p"]
+atlas = ExtResource("1_841ny")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_52u5p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_warir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8o63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1aab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31v2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvr31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52u5p")
+}],
+"loop": false,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikw23"]
+size = Vector2(23, 31)
+
+[node name="Pohon" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(10, -22)
+sprite_frames = SubResource("SpriteFrames_52u5p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9.5, -5.5)
+shape = SubResource("RectangleShape2D_ikw23")
+
+[node name="AppleSpot1" type="Marker2D" parent="."]
+position = Vector2(16, -4)
+
+[node name="AppleSpot2" type="Marker2D" parent="."]
+position = Vector2(5, -10)
+
+[node name="Apple" type="Sprite2D" parent="."]
+position = Vector2(5, -10)
+texture = ExtResource("2_uj7u5")
