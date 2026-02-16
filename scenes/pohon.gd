@@ -6,7 +6,6 @@ var max_grow = false
 
 func _process(_delta: float) -> void:
 	interact_tree()
-	print(max_grow)
 	pass
 
 

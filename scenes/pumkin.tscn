@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://cxx35kg0h18m4"]
+
+[ext_resource type="Texture2D" uid="uid://sdhdbvswjtcd" path="res://asset/enviroment/pumkin.png" id="1_r1qpu"]
+[ext_resource type="Script" uid="uid://iuvnwg2jrouh" path="res://scenes/pumkin.gd" id="2_2k37c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2k37c"]
+atlas = ExtResource("1_r1qpu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdcgs"]
+atlas = ExtResource("1_r1qpu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ym4ow"]
+atlas = ExtResource("1_r1qpu")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqtdn"]
+atlas = ExtResource("1_r1qpu")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dnlej"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2k37c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdcgs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ym4ow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqtdn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2k37c"]
+size = Vector2(12, 8)
+
+[node name="Pumkin" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_dnlej")
+frame_progress = 0.55567056
+script = ExtResource("2_2k37c")
+
+[node name="GrowTime" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_2k37c")
+
+[connection signal="timeout" from="GrowTime" to="." method="_on_grow_time_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
