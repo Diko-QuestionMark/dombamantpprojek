@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://qe6d7r0dhem4"]
+[gd_scene load_steps=27 format=4 uid="uid://qe6d7r0dhem4"]
 
 [ext_resource type="Script" uid="uid://crp8qodu5ffc" path="res://scenes/heaven.gd" id="1_axnk8"]
 [ext_resource type="Texture2D" uid="uid://chaa8q2k8bnrm" path="res://asset/enviroment/grass.png" id="1_nnobs"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dnvc4m8qc3n2l" path="res://scenes/pohon.tscn" id="10_kmqmy"]
 [ext_resource type="PackedScene" uid="uid://cxx35kg0h18m4" path="res://scenes/pumkin.tscn" id="12_uqftx"]
 [ext_resource type="Texture2D" uid="uid://d3t7g5s4fbw43" path="res://asset/enviroment/king.png" id="13_kmqmy"]
+[ext_resource type="Script" uid="uid://e6bvc738yhvu" path="res://scenes/king.gd" id="14_074jj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7jktm"]
 texture = ExtResource("1_nnobs")
@@ -122,6 +123,9 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r57td"]
+size = Vector2(59, 35)
+
 [node name="Heaven" type="Node2D"]
 script = ExtResource("1_axnk8")
 
@@ -174,7 +178,14 @@ position = Vector2(-317, -24)
 position = Vector2(468, -120)
 sprite_frames = SubResource("SpriteFrames_uqftx")
 autoplay = "default"
-frame_progress = 0.7652556
+frame_progress = 0.22066863
+script = ExtResource("14_074jj")
+
+[node name="TalkArea" type="Area2D" parent="King"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="King/TalkArea"]
+position = Vector2(-18.5, -9.5)
+shape = SubResource("RectangleShape2D_r57td")
 
 [connection signal="body_entered" from="Pohon" to="Pohon" method="_on_body_entered"]
 [connection signal="body_exited" from="Pohon" to="Pohon" method="_on_body_exited"]
@@ -182,6 +193,8 @@ frame_progress = 0.7652556
 [connection signal="body_exited" from="Pohon2" to="Pohon2" method="_on_body_exited"]
 [connection signal="body_entered" from="Pohon3" to="Pohon3" method="_on_body_entered"]
 [connection signal="body_exited" from="Pohon3" to="Pohon3" method="_on_body_exited"]
+[connection signal="body_entered" from="King/TalkArea" to="King" method="_on_talk_area_body_entered"]
+[connection signal="body_exited" from="King/TalkArea" to="King" method="_on_talk_area_body_exited"]
 
 [editable path="Sky"]
 [editable path="Player"]

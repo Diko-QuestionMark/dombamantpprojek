@@ -44,8 +44,8 @@ size = Vector2(12, 8)
 
 [node name="Pumkin" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_dnlej")
-frame_progress = 0.55567056
 script = ExtResource("2_2k37c")
+grow_time = 2
 
 [node name="GrowTime" type="Timer" parent="."]
 

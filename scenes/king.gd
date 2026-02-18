@@ -1,19 +1,23 @@
 extends AnimatedSprite2D
 
+var in_area = false
+@onready var labelPlayer = $"../Player/Label/Label"
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass 
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
 func _on_talk_area_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+	if body.name == "Player":
+		in_area = true
+		labelPlayer.visible = true
 
 
 func _on_talk_area_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
+	if body.name == "Player":
+		in_area = false
+		labelPlayer.visible = false
